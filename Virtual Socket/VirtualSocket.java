@@ -53,11 +53,13 @@ public class VirtualSocket extends DatagramSocket
 		
 		//Satunnainen bitti 
 		int maski = 1 << satLuku(0, 7); 
-		int muutettava = bitit[0];
-		
-		//Ehkä looppi jolla katsotaan että varmasti muuttui.
-		
-		bitit[0] = (byte) (muutettava ^ maski);
+		//Muutetaan kaikista saaduista byte-biteistä yksi satunnainen bitti.
+		//Ei kosketa viimeiseen byteen, koska se on CRC8, tai ensimmäiseen, 
+		//koska se on seq.
+		for (int i = 1; i < bitit.length-1; i++){
+			int muutettava = bitit[i];
+			bitit[i] = (byte) (muutettava ^ maski);
+		}
 		
 		return bitit;
 	}
