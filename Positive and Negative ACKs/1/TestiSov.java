@@ -3,7 +3,7 @@ import java.net.*;
 
 /*
 Testisovellus, joka tällä hetkellä tulostaa virtuaalisokettiin saadun paketin,
-tai tiedon siitä onko paketti pudotettu. (tehtävä 1.)
+tai tiedon siitä onko paketti pudotettu.
 */
 class TestiSov {
 	private static DatagramSocket soketti = null;

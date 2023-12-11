@@ -4,8 +4,8 @@ import java.util.Random;
 
 public class VirtualSocket extends DatagramSocket
 {
-	//Paketin pudottmisen todennäköisyys (tehtävä 2.)
-	private static double p_drop = 0.2;
+	//Paketin pudottmisen todennäköisyys
+	private static double p_drop = 0.0;
 	
 	public VirtualSocket () throws SocketException{
 		super();
@@ -24,13 +24,13 @@ public class VirtualSocket extends DatagramSocket
 			packet.setData(bittiVirhe(copy));
 			
 			super.receive(packet);
-			//Jos generoitiin satunnaisesti pienempi tai yhtäsuuri luku, pudotetaan paketti (tehtävä 2.)
+			//Jos generoitiin satunnaisesti pienempi tai yhtäsuuri luku, pudotetaan paketti
 			if (randGen.nextDouble() <= p_drop){
 				System.out.println("Dropped packet");
 			}
 			else {
 				try {
-					// Asetetaan viivästys ennen paketin palautusta, aikaväli 0-3 sekunttia (tehtävä 3.)
+					// Asetetaan viivästys ennen paketin palautusta, aikaväli 0-3 sekunttia
                     Thread.sleep(satLuku(0, 3000)); 
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -47,7 +47,7 @@ public class VirtualSocket extends DatagramSocket
 	
 	/*
 	Apufunktio, jolla muutetaan yksi satunnainen bitti käänteiseksi,
-	eli bitti 0 bitiksi 1 ja toisinpäin. (tehtävä 4.)
+	eli bitti 0 bitiksi 1 ja toisinpäin.
 	*/
 	public byte[] bittiVirhe(byte[] bitit){
 		
