@@ -1,5 +1,5 @@
-ip address add 160.0.0.2/24 dev eth0
-ip address add 160.0.0.4/24 dev eth1
-ip address add 160.0.0.5/24 dev eth2
+ip address add 160.1.0.2/30 dev eth0
+ip address add 160.1.0.12/30 dev eth1
+ip address add 160.1.0.16/30 dev eth2
 
 systemctl start frr
